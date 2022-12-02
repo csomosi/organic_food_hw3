@@ -1,0 +1,252 @@
+/* https://developer.paciellogroup.com/blog/2012/05/html5-accessibility-chops-hidden-and-aria-hidden/ */
+.offscreen {
+  clip-path: inset(100%);
+  clip: rect(1px 1px 1px 1px); /* IE 6/7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; /* added line */
+  width: 1px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* font is loaded locally. You can use these fonts in the template */
+@font-face {
+  font-family: Oswald;
+  src: url("./fonts/Oswald/Oswald-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url("./fonts/Oswald/Oswald-ExtraLight.ttf") format("truetype");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url("./fonts/Oswald/Oswald-Light.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Oswald;
+  src: url("./fonts/Oswald/Oswald-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("./fonts/Lato/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("./fonts/Lato/Lato-Light.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("./fonts/Lato/Lato-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
+body {
+  font-weight: 300;
+  font-family: "Oswald", sans-serif;
+  padding: 0;
+  background-color: lightgrey;
+  margin: 0;
+  width: 100vw;
+}
+
+/* ------- header-------------- */
+
+/* commened only to see status of chkbox: */
+
+/* .menu-chkbox, */
+.tog-label {
+  display: none;
+}
+
+.banner-img-container {
+  width: 100vw;
+  height: 30vw;
+  overflow: hidden;
+}
+
+.banner-img {
+  filter: brightness(50%);
+  height: 68vw;
+  margin-top: -5vw;
+}
+
+.header-section {
+  position: relative;
+}
+
+.header-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: white;
+}
+
+.header-top,
+.header-menu-line {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+  justify-content: space-between;
+  font-size: 0.6rem;
+}
+
+.header-top {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid;
+}
+
+.menu-item {
+  display: inline-block;
+  padding-left: 0.5rem;
+}
+
+.header-bottom {
+  text-align: center;
+}
+
+.button {
+  background-color: rgb(103, 248, 103);
+  font-size: 0.8rem;
+  padding: 0.5vw;
+  margin: 0 auto;
+  width: 10vw;
+  border-radius: 20px;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+/* --------- main ------------ */
+
+.main-container {
+  display: grid;
+  grid-template-columns: 22vw 12vw 12vw 12vw 22vw;
+  grid-column-gap: 5vw;
+  grid-row-gap: 1vw;
+  margin-top: 2rem;
+}
+
+.welcome {
+  grid-column: 2 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.box {
+  background-color: rgb(226, 223, 223);
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.6rem;
+  color: rgb(58, 199, 58);
+}
+
+.bigger {
+  font-size: 1rem;
+}
+
+.icon {
+  width: 5vw;
+}
+
+#box1 {
+  grid-column: 2 / 3;
+}
+
+#box {
+  grid-column: 3 / 4;
+}
+
+#box {
+  grid-column: 5 / 6;
+}
+
+/* --------- footer ---------- */
+.footer-img-container {
+  margin-top: 2rem;
+  width: 100vw;
+  height: 30vw;
+  overflow: hidden;
+}
+
+.footer-img {
+  height: 68vw;
+  margin-top: -5vw;
+}
+
+.copyright {
+  width: fit-content;
+  font-size: 0.6rem;
+  margin: 1rem auto;
+}
+
+@media (max-width: 980px) {
+  .banner-img-container {
+    height: 300px;
+  }
+
+  .button {
+    width: 80px;
+  }
+}
+
+@media (max-width: 680px) {
+  .menu-item:not(:last-child) {
+    display: none;
+  }
+
+  .tog-label {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 1rem;
+    margin-left: 1rem;
+  }
+
+  .main-container {
+    grid-template-columns: 10vw 10vw 40vw 10vw 10vw;
+    font-size: 1.6rem;
+  }
+
+  #box1,
+  #box2,
+  #box3 {
+    grid-column: 3 / 4;
+    font-size: 1.5rem;
+  }
+
+  .bigger {
+    font-size: 2rem;
+  }
+
+  .icon {
+    width: 5rem;
+  }
+
+  .menu-chkbox:checked ~ .menu-item {
+    display: block;
+  }
+}
