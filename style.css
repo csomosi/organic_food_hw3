@@ -112,27 +112,48 @@ body {
   border-bottom: 1px solid;
 }
 
-.menu-item {
-  display: inline-block;
+.menu {
   list-style: none;
+  display: flex;
+  margin-bottom: 0;
+}
+
+.menu-item {
   padding-left: 0.5rem;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-bottom {
   text-align: center;
 }
 
+.big-logo {
+  width: 10vw;
+}
+
 .button {
   background-color: rgb(103, 248, 103);
-  font-size: 1rem;
+  font-size: 1vw;
   padding: 0.5vw;
   margin: 0 auto;
   width: 10vw;
   border-radius: 20px;
 }
 
+.button > a {
+  text-decoration: none;
+  color: white;
+}
+
 h1 {
-  font-size: 3rem;
+  font-size: 4vw;
 }
 
 /* --------- main ------------ */
@@ -205,22 +226,62 @@ h2 {
   margin: 1rem auto;
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1020px) {
+  .main-container {
+    grid-template-columns: 13vw 18vw 18vw 18vw 13vw;
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 790px) {
   .banner-img-container {
-    height: 600px;
+    height: 130vw;
   }
 
   .banner-img {
-    height: 600px;
-    width: 500px;
+    height: 130vw;
   }
 
   .header-top {
-    width: 90%;
+    width: 80%;
+  }
+
+  .big-logo {
+    width: 20vw;
+  }
+
+  h1 {
+    font-size: 15vw;
+  }
+
+  .button {
+    width: 40vw;
+    font-size: 6vw;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .header-menu-line {
+    flex-direction: column;
   }
 
   .menu {
-    display: none;
+    flex-direction: column;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  .menu-item {
+    height: 2.5rem;
+    border-bottom: 3px solid green;
+    margin-bottom: 0.5rem;
+    background-color: rgba(128, 128, 128, 0.4);
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-left: 0;
   }
 
   .toggle-label {
@@ -231,12 +292,8 @@ h2 {
     margin-left: 1rem;
   }
 
-  .menu-checkbox:checked ~ .menu {
-    display: inline-block;
-  }
-
-  .button {
-    width: 80px;
+  .menu-checkbox:checked ~ .menu-container {
+    display: block;
   }
 
   .main-container {
